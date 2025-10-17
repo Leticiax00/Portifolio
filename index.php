@@ -4,26 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letícia Ramos | Programmer</title>
-    
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="media.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Byte</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+       <nav>
+  <div class="logo">Byte</div>
+
+  <!-- Botão hamburguer (visível só no mobile) -->
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+
+  <!-- Links desktop -->
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Sobre</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- Sidebar (mobile) -->
+<div class="sidebar" id="sidebar">
+  <button class="close-btn" id="close-btn">×</button>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Sobre</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+</div>
+
 
     <section id="home" class="hero">
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 2rem;"></div>
-            <img class="profile-img" src="images/profile-img.jpg" alt="Google Logo" style=" border-radius:50%; border:3px solid #0074D9;">
-            <div>
+            <img class="profile-img" src="images/profile-img-second.png" alt="Google Logo">
+            <div class="home">
                 <h1>Letícia Ramos</h1>
-                <p>Programadora Júnior focada em Desenvolvimento Web e criação de sistemas de gestão financeira</p>
+                <p>Programadora Júnior, com experiência em suporte técnico e desenvolvimento de sistemas de gestão empresarial, atuando na criação de soluções utilizando PHP, CodeIgniter 4, MySQL, HTML e CSS.
+                Busco aprimorar continuamente minhas habilidades em desenvolvimento web e contribuir para projetos que unam eficiência técnica, inovação e excelência na experiência do usuário.</p>
                 <a href="#contact" class="cta-button">Saiba Mais</a>
             </div>
         </div>
@@ -105,7 +122,7 @@
             }
         });
 
-        // Formulário: Alerta simples (pode ser substituído por AJAX/PHP real)
+        // Envio formulario de contato
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Mensagem enviada! (Simulação - adicione PHP para backend real.)');
@@ -130,7 +147,7 @@
             color: #0074D9; 
         }
         a:hover {
-            color: #001F3F;
+            color: #ffffffff;
         }
 
         header {
@@ -156,10 +173,26 @@
             color: #0074D9;
         }
 
+        
+
         .profile-img {
-            width:15pc; 
-            height:15pc
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 3px solid #0074D9;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0, 116, 217, 0.2);
+    display: block;
+    margin-bottom: 2rem;
+}
+
+
+        .home {
+            margin-left: 3pc;
+            margin-right: 2pc;
         }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -168,6 +201,74 @@
         .nav-links li a {
             transition: color 0.3s;
         }
+
+        /* Botão hamburguer (só aparece no mobile) */
+        .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #0074D9;
+        font-size: 2rem;
+        cursor: pointer;
+}
+
+/* Sidebar oculto por padrão */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease;
+  z-index: 2000;
+}
+
+/* Quando ativo */
+.sidebar.active {
+  right: 0;
+}
+
+/* Botão de fechar */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: #0074D9;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Links do sidebar */
+.sidebar .nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  text-align: center;
+}
+
+.sidebar .nav-links a {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* Mostrar menu hamburguer no mobile */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
 
         .hero {
             height: 100vh;
@@ -209,15 +310,6 @@
             background: #001F3F;
             transform: scale(1.05);
         }
-
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
        
         .about {
             padding: 5rem 2rem;
@@ -303,7 +395,7 @@
         /* Responsivo */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Esconde menu em mobile, pode adicionar hamburger se quiser */
+                display: none;
             }
             .hero h1 {
                 font-size: 2rem;
@@ -329,5 +421,30 @@
             }
         }
     </style>
+
+    <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("close-btn");
+
+    // Abre o sidebar
+    menuToggle.addEventListener("click", () => {
+    sidebar.classList.add("active");
+    });
+
+    // Fecha no botão X
+    closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    });
+
+    // Fecha ao clicar em qualquer link do sidebar
+    const sidebarLinks = sidebar.querySelectorAll("a");
+    sidebarLinks.forEach(link => {
+    link.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    });
+});
+
+</script>
 </body>
 </html>
