@@ -530,32 +530,29 @@ document.getElementById("formContato").addEventListener("submit", function(e) {
   const email = document.getElementById("email").value.trim();
   const mensagem = document.getElementById("mensagem").value.trim();
   const statusMsg = document.getElementById("statusMsg");
-  const numero = "5584994259168"; // seu número com DDI + DDD
+  const numero = "5584994259168"; // coloque o seu número
 
   if (!nome || !email || !mensagem) return;
 
   const texto = `Olá! Me chamo ${nome}. (%0AEmail: ${email})%0A%0A${mensagem}`;
   const url = `https://wa.me/${numero}?text=${texto}`;
 
-  // Exibe mensagem
+  // Mostra mensagem
   statusMsg.style.display = "block";
-  statusMsg.style.color = "white"; // altera cor do texto
   statusMsg.textContent = "Redirecionando para o WhatsApp...";
+  statusMsg.style.color = "white";
 
-  // Abre o WhatsApp
+  // Abre imediatamente (funciona no celular)
+  window.location.href = url;
+
+  // Limpa e esconde depois
   setTimeout(() => {
-    window.open(url, "_blank");
-
-    // Limpa os campos do formulário
     document.getElementById("formContato").reset();
-
-    // Some com a mensagem após 2 segundos
-    setTimeout(() => {
-      statusMsg.style.display = "none";
-    }, 2000);
-  }, 1000);
+    statusMsg.style.display = "none";
+  }, 3000);
 });
 </script>
+
 
 
 
