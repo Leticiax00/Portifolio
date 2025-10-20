@@ -158,7 +158,7 @@
       margin-bottom: 1rem;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
+      animation: fadeInUp 2s ease forwards;
     }
 
     .home p {
@@ -166,7 +166,7 @@
       max-width: 600px;
       margin: 0 auto 1rem;
       opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
+      animation: fadeIn 2s ease forwards;
       animation-delay: 0.5s;
     }
 
@@ -178,7 +178,7 @@
       border-radius: 5px;
       transition: background 0.3s, transform 0.3s;
       opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
+      animation: fadeIn 2s ease forwards;
       animation-delay: 0.9s;
       text-decoration: none ;
     }
@@ -213,12 +213,11 @@
     /* ===== ABOUT ===== */
     .about {
       padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: auto;
       text-align: center;
-      background: linear-gradient(135deg, #001f3f, #000);
-      background-size: 100% 200px;
-      background-repeat: no-repeat;
+      width: 100%; 
+      text-align: center;
+      background-color: #001528;
+      
       
     }
 
@@ -255,6 +254,51 @@
       background-color: #001f3f;
     }
 
+    /* ====== SERVICES ===== */
+    .services {
+      padding: 5rem 2rem;
+      text-align: center;
+      width: 100%; 
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0074d9;
+    }
+
+    .cards-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card-service {
+      background: rgba(0, 116, 217, 0.1);
+      border: 1px solid #0074d9;
+      border-radius: 10px;
+      padding: 2rem;
+      transition: transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.animate,
+.card-service.animate {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
+}
+
+.card:hover,
+.card-service:hover {
+  transform: translateY(-10px);
+  background-color: #001f3f;
+}
+
+
+
     /* ===== CONTACT ===== */
     .contact {
       background: #001f3f;
@@ -262,10 +306,13 @@
       text-align: center;
     }
 
+    .contato {
+      margin-bottom: 2rem;
+    }
+
     .contact h2 {
       color: #0074d9;
       font-size: 2.5rem;
-      margin-bottom: 2rem;
     }
 
     form {
@@ -303,7 +350,6 @@
       padding: 2rem;
       text-align: center;
       border-top: 1px solid #0074d9;
-      background: #000;
     }
 
     /* ===== RESPONSIVO ===== */
@@ -357,18 +403,18 @@
   z-index: 9999;
 }
 
-
   </style>
 </head>
 
 <body>
   <header>
     <nav>
-      <div class="logo">Byte</div>
+      <div class="logo">100Byte</div>
       <button class="menu-toggle" id="menu-toggle">☰</button>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">Sobre</a></li>
+        <li><a href="#about">Ativos</a></li>
+        <li><a href="#services">Serviços</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
     </nav>
@@ -408,11 +454,12 @@
 
 
   <section id="about" class="about">
-    <h2>Sobre mim</h2>
+    <h2>Serviços ativos</h2>
     <div class="cards">
       <div class="card">
-        <h3>Serviço 1</h3>
-        <p>Descrição breve do nosso primeiro serviço.</p>
+        <h3>Web Clinic</h3>
+        <p>O Web Clinic é uma plataforma voltada para a gestão de clínicas médicas, que reúne funcionalidades para agilizar tarefas administrativas, operacionais e clínicas. 
+        Ele permite que a clínica concentre num único ambiente: agenda medica, prontuário, prescrição, relatórios, comunicação com paciente etc.</p>
       </div>
       <div class="card">
         <h3>Serviço 2</h3>
@@ -425,15 +472,92 @@
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Entre em Contato</h2>
-    <form>
-      <input type="text" placeholder="Seu Nome" required />
-      <input type="email" placeholder="Seu Email" required />
-      <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
+  <section id="services" class="services">
+    <h2>Serviços Oferecidos</h2>
+    <div class="cards-services">
+      <div class="card-service">
+        <h3>Desenvolvimento de Aplicativos</h3>
+        <p>Desenvolvemos aplicativos web personalizados para atender às necessidades específicas de sua empresa. Nossa equipe de desenvolvedores é experiente em tecnologias como PHP, CodeIgniter 4 e React.</p>
+        <ul>
+          <li>Desenvolvimento de sistemas de gestão empresarial</li>
+          <li>Desenvolvimento de plataformas de e-commerce</li>
+          <li>Desenvolvimento de aplicativos de segurança</li>
+        </ul>
+      </div>
+      <div class="card-service">
+        <h3>Suporte Técnico</h3>
+        <p>Oferecemos suporte técnico personalizado para empresas que precisam de ajuda para resolver problemas técnicos. Nossa equipe de suporte é experiente em tecnologias como Windows, Linux e macOS.</p>
+        <ul>
+          <li>Resolução de problemas técnicos</li>
+          <li>Instalação e configuração de sistemas operacionais</li>
+          <li>Manutenção de equipamentos de rede</li>
+        </ul>
+      </div>
+      <div class="card-service">
+        <h3>Otimização de Performance</h3>
+        <p>Oferecemos serviço de otimização de performance para empresas que precisam melhorar o desempenho de seus aplicativos. Nossa equipe de desenvolvedores é experiente em tecnologias como PHP, CodeIgniter 4 e React.</p>
+        <ul>
+          <li>Otimização de aplicativos web</li>
+          <li>Otimização de banco de dados</li>
+          <li>Otimização de servidor</li>
+        </ul>
+      </div>
+    </div>
   </section>
+
+
+ <section id="contact" class="contact">
+  <div class="contato">
+    <h2>Entre em Contato</h2>
+    <p>Envie uma mensagem para solicitação de orçamentos ou sugestões.</p>
+  </div>
+
+  <form id="formContato">
+    <input type="text" id="nome" placeholder="Seu Nome" required>
+    <input type="email" id="email" placeholder="Seu Email" required>
+    <textarea id="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="statusMsg" style="display:none; color:white; margin-top:10px;"></p>
+</section>
+
+<script>
+document.getElementById("formContato").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const mensagem = document.getElementById("mensagem").value.trim();
+  const statusMsg = document.getElementById("statusMsg");
+  const numero = "5584994259168"; // seu número com DDI + DDD
+
+  if (!nome || !email || !mensagem) return;
+
+  const texto = `Olá! Me chamo ${nome}. (%0AEmail: ${email})%0A%0A${mensagem}`;
+  const url = `https://wa.me/${numero}?text=${texto}`;
+
+  // Exibe mensagem
+  statusMsg.style.display = "block";
+  statusMsg.style.color = "white"; // altera cor do texto
+  statusMsg.textContent = "Redirecionando para o WhatsApp...";
+
+  // Abre o WhatsApp
+  setTimeout(() => {
+    window.open(url, "_blank");
+
+    // Limpa os campos do formulário
+    document.getElementById("formContato").reset();
+
+    // Some com a mensagem após 2 segundos
+    setTimeout(() => {
+      statusMsg.style.display = "none";
+    }, 2000);
+  }, 1000);
+});
+</script>
+
+
 
   <footer>
     <p>&copy; Letícia Ramos.</p>
@@ -460,7 +584,7 @@
       { threshold: 0.2 }
     );
 
-    document.querySelectorAll(".card").forEach((card) => observer.observe(card));
+    document.querySelectorAll(".card, .card-service").forEach((card) => observer.observe(card));
 
     // Animação da  legenda no cursor
   const tooltipArea = document.querySelector('.tooltip-area');
