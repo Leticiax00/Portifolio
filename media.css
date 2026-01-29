@@ -1,0 +1,96 @@
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .profile-img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Telas até 768px (smartphones) */
+@media (max-width: 768px) {
+
+    .hero {
+    flex-direction: column;
+    align-items: center;
+    padding-top: calc(80px + 2rem);
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
+
+  .container-hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .container-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .about, .contact {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .profile-img {
+    width: 220pc;
+    height: 220pc;
+  }
+}
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    margin-top: 10rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
